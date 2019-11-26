@@ -12,6 +12,7 @@ namespace SydvestBo
             Console.WriteLine("Mike was here!!");
             Console.WriteLine("dafadfaf");
             Console.WriteLine("igen");
+            Console.WriteLine("Igen igen");
         }
     }
 }
