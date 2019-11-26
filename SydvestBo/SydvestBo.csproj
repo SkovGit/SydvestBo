@@ -8,6 +8,7 @@
     <RootNamespace>SydvestBo</RootNamespace>
     <AssemblyName>SydvestBo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <StartupObject>Starter</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,13 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI.cs" />
+    <Compile Include="Udlejer.cs" />
+    <Compile Include="Feriebolig.cs" />
+    <Compile Include="PostNrBy.cs" />
+    <Compile Include="Kontrakt.cs" />
+    <Compile Include="Feriebolig_status.cs" />
+    <Compile Include="Kalender.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

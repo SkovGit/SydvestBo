@@ -2,7 +2,7 @@
 
 namespace SydvestBo
 {
-    class MainClass
+    class Starter
     {
         public static void Main(string[] args)
         {
