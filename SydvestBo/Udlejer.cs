@@ -14,6 +14,14 @@ namespace SydvestBo
         public string Email { get; set; }
         public string Telefon { get; set; }
 
+        public string FullUdlejer
+        {
+            get
+            {
+                return $" { UdlejerId } { Fornavn } { Efternavn } { Adresse } { Postnr }" +
+                    $"{ DatoOprettet } { Email } {Telefon} ";
+            }
+        }
 
         public Udlejer()
         {

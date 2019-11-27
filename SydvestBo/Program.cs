@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace SydvestBo
 {
@@ -8,6 +12,11 @@ namespace SydvestBo
         {
             // Herfra startes applikationen ved at instantiere UI klassen
 
+            SqlAccess sql = new SqlAccess();
+            sql.ConnectionOK();
+            
+            
+            
         }
     }
 }
