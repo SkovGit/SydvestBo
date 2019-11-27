@@ -1,8 +1,8 @@
 ﻿using System;
-using Aflevering_44;
 
 
-namespace Aflevering_44
+
+namespace SydvestBo
 {
     public class MenuClass
     {
@@ -17,13 +17,13 @@ namespace Aflevering_44
             TaskClass taskclass = new TaskClass();
             bool tastSkift = true;
             menu = 1;
-            
+
             while (tastSkift == true)
             {
                 if (menu > 3) menu = 3;
                 if (menu < 1) menu = 1;
                 if (menu == 1)
-                Console.Clear();
+                    Console.Clear();
                 MenuText();
                 Console.WriteLine();
                 Console.WriteLine();
@@ -52,7 +52,7 @@ namespace Aflevering_44
                         break;
                 }
 
-                
+
             }
         }
         public void RunOpg()
@@ -160,7 +160,7 @@ namespace Aflevering_44
         {
             if (taskCount != 1)
                 taskCount--;
-        }  
+        }
         static void MenuArrrowRight()
         {
             menu++;
