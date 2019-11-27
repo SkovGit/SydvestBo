@@ -67,7 +67,7 @@ namespace SydvestBo
                     getUKatsPos.Add(i);
                     if (i == UnderKat)
                         Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine(UnderKats[i]);
+                    Console.WriteLine($"{UnderKats[i]}\t:");
                     Console.ResetColor();
                 }
 
