@@ -3,15 +3,15 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 
 
-namespace SydvestBo
+namespace SydvestBo.Uifolder
 {
-    public class TaskClass
+    public class AddUser
     {
 
         public void PlayTask()
         {
             // String til funktionsnavn
-            string methodName = $"opgave{ MenuClass.menu }_{  MenuClass.taskCount }";
+            string methodName = $"opgave{ MenuClass.counter }_{  MenuClass.taskCount }";
 
             //Man skal bruge en variabel af typen 'Type', for at bruge 'GetMethod' funktionen
             Type thisType = this.GetType();
@@ -35,13 +35,13 @@ namespace SydvestBo
         }
         void TaskIntro()
         {
-            Console.WriteLine($"Velkommen til opgave { MenuClass.menu }.{ MenuClass.taskCount }");
+            Console.WriteLine($"Velkommen til opgave { MenuClass.counter }.{ MenuClass.taskCount }");
             Console.WriteLine();
         }
         void TaskOutro()
         {
             Console.WriteLine();
-            Console.WriteLine(@$"Opgave { MenuClass.menu }.{ MenuClass.taskCount } slut
+            Console.WriteLine($@"Opgave { MenuClass.counter }.{ MenuClass.taskCount } slut
 Tryk Escape for at gå tilbage
 Tryk på en tilfældig tast for at køre opgaven igen");//slut
             MenuClass.tast = Console.ReadKey(true);
@@ -132,7 +132,7 @@ Tryk på en tilfældig tast for at køre opgaven igen");//slut
             string fixFuldeNavn = fuldenavn2.Substring(0, _trim);
 
             Console.WriteLine();
-            Console.WriteLine(@$"Dit fulde navn er:
+            Console.WriteLine($@"Dit fulde navn er:
 {fixFuldeNavn}");
             TaskOutro();
         }

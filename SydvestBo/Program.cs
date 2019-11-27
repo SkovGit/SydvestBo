@@ -1,11 +1,16 @@
 ﻿using System;
 
+
 namespace SydvestBo
 {
-    class Starter
+    class MainClass
     {
         public static void Main(string[] args)
         {
+            var kør = new Kategori();
+
+            kør.KørMenu();
+
             Console.WriteLine("Hello ugly world!");
             Console.WriteLine("New Changes");
             Console.WriteLine("Daniel has made a change ᕦ( ၜ ͜  ၜ )ᕥ ");
@@ -13,6 +18,8 @@ namespace SydvestBo
             Console.WriteLine("dafadfaf");
             Console.WriteLine("igen");
             Console.WriteLine("Igen igen");
+
+
         }
     }
 }

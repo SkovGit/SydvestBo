@@ -1,13 +1,13 @@
 ﻿using System;
-namespace SydvestBo
+namespace SydvestBo.Uifolder
 {
     public class TestUI
     {
-        void testmenuen()
+        public void testmenuen()
         {
-            var run = new MenuClass();
+            var run = new TestUI();
 
-            run.RunMenu();
+            run.testmenuen();
         }
     }
 }
