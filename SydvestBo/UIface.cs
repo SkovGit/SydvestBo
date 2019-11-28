@@ -5,26 +5,35 @@ using System.Reflection;
 
 namespace SydvestBo
 {
-    public class Kategori
+    
+
+    public class UIface
     {
         public static ConsoleKeyInfo Tast; //Lader mig bruge ConsoleKeys 
 
         static bool Loopkat = true; //  ************| Er vi inde i Menuen?
         static int KatTæller; // ************| Hvilken Menu kigger vi på: udlejer, feriebolig, kontrakt
-        static int UnderKat; // ************| Under kategori: opret, vis, slet, opdater
+        public int UnderKat; // ************| Under kategori: opret, vis, slet, opdater
         static int Menu; // ************| Current Menu
-        static int UnderKatYpos = 1;
+        static int UnderKatYpos = 2;
 
-        List<string> Kategorier = new List<string> {"Udlejer", "Feriebolig", "Kontrakt" };
-        List<string> UnderKats  = new List<string> { "Opret", "Vis", "Slet", "Opdater" };
+        
+
+        public List<string> Kategorier = new List<string> {"Udlejer", "Feriebolig", "Kontrakt" };
+        public List<string> UnderKats  = new List<string> { "Opret", "Vis", "Slet", "Opdater" };
 
 
         public void KørMenu()
         {
 
-            KatTæller = Kategorier.IndexOf(Kategorier.First<string>());
-            UnderKat = UnderKats.IndexOf(UnderKats.First<string>());
+            Udlejer udlejer = new Udlejer();
+            Feriebolig feriebolig = new Feriebolig();
+            Kontrakt kontrakt = new Kontrakt();
 
+            int testint = 0;
+            int katæller;
+            KatTæller = Kategorier.IndexOf(Kategorier.First<string>()); // ************| Hvilken Menu kigger vi på: udlejer, feriebolig, kontrakt
+            UnderKat = UnderKats.IndexOf(UnderKats.First<string>());
 
             while (Loopkat == true)
             {
@@ -54,7 +63,12 @@ namespace SydvestBo
 
                     // ************| Trykker Enter
                     case ConsoleKey.Enter:
-                        PlayTask();
+                        if (testint == 0)
+                            udlejer.PlayTask();
+                        if (testint == 1)
+                            feriebolig.PlayTask();
+                        if (testint == 2)
+                            kontrakt.PlayTask();
                         break;
                 }
                 int musPosition = Console.CursorTop;
@@ -66,7 +80,14 @@ namespace SydvestBo
                 {
                     getUKatsPos.Add(i);
                     if (i == UnderKat)
+                    {
+
+                        udlejer.GetUnderKat = i;
+                        feriebolig.GetUnderKat = i;
+                        kontrakt.GetUnderKat = i;
+                        
                         Console.BackgroundColor = ConsoleColor.Green;
+                    }
                     Console.WriteLine($"{UnderKats[i]}\t:");
                     Console.ResetColor();
                 }
@@ -82,120 +103,22 @@ namespace SydvestBo
                     if (i == Kategorier.IndexOf(Kategorier.First<string>()))
                         Console.Write("\t    ");
                     if (i == KatTæller)
+                    {
+                        testint = i;
+                        
                         Console.BackgroundColor = ConsoleColor.Green;
+                    }
                     Console.Write($"{Kategorier[i]}");
                     Console.ResetColor();
                     Console.Write("    ");
                 }
+                udlejer.GetOverKat = testint;
+                kontrakt.GetOverKat = testint;
+                feriebolig.GetOverKat = testint;
+
                 Console.SetCursorPosition(default, getUKatsPos[UnderKat] + UnderKatYpos);
                 Tast = Console.ReadKey(true);
-
             }
         }
-
-
-
-
-        public void PlayTask()
-        {
-            
-            string methodName = $"{UnderKats[UnderKat]}";
-
-            Type thisType = this.GetType();
-            MethodInfo myMethod = thisType.GetMethod(methodName);
-
-            try
-            {
-
-                myMethod.Invoke(this, null);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                Console.ReadKey();
-            }
-            
-            Console.Clear();
-
-        }
-
-        
-        
-            // ****************************** | Underkategori Metoder
-        public virtual void Opret()
-        {
-            for (int i = Kategorier.IndexOf(Kategorier.First<string>()); i <= Kategorier.IndexOf(Kategorier.Last<string>()); i++)
-            {
-                if (i == Kategorier.IndexOf(Kategorier.First<string>()))
-                    Console.Write("\t    ");
-                if (i == KatTæller)
-                    Console.BackgroundColor = ConsoleColor.Green;
-                Console.Write($"{Kategorier[i]}");
-                Console.ResetColor();
-                Console.Write("    ");
-            }
-            Console.SetCursorPosition(default, UnderKatYpos);
-            Console.WriteLine("Opret");
-            Console.ReadKey();
-        }
-        public void Vis()
-        {
-            for (int i = Kategorier.IndexOf(Kategorier.First<string>()); i <= Kategorier.IndexOf(Kategorier.Last<string>()); i++)
-            {
-                if (i == Kategorier.IndexOf(Kategorier.First<string>()))
-                    Console.Write("\t    ");
-                if (i == KatTæller)
-                    Console.BackgroundColor = ConsoleColor.Green;
-                Console.Write($"{Kategorier[i]}");
-                Console.ResetColor();
-                Console.Write("    ");
-            }
-            Console.SetCursorPosition(default, UnderKatYpos);
-            Console.WriteLine("Vis");
-            Console.ReadKey();
-        }
-        public void Slet()
-        {
-            for (int i = Kategorier.IndexOf(Kategorier.First<string>()); i <= Kategorier.IndexOf(Kategorier.Last<string>()); i++)
-            {
-                if (i == Kategorier.IndexOf(Kategorier.First<string>()))
-                    Console.Write("\t    ");
-                if (i == KatTæller)
-                    Console.BackgroundColor = ConsoleColor.Green;
-                Console.Write($"{Kategorier[i]}");
-                Console.ResetColor();
-                Console.Write("    ");
-            }
-            Console.SetCursorPosition(default, UnderKatYpos);
-            Console.WriteLine("Slet");
-            Console.ReadKey();
-        }
-        public void Opdater()
-        {
-            for (int i = Kategorier.IndexOf(Kategorier.First<string>()); i <= Kategorier.IndexOf(Kategorier.Last<string>()); i++)
-            {
-                if (i == Kategorier.IndexOf(Kategorier.First<string>()))
-                    Console.Write("\t    ");
-                if (i == KatTæller)
-                    Console.BackgroundColor = ConsoleColor.Green;
-                Console.Write($"{Kategorier[i]}");
-                Console.ResetColor();
-                Console.Write("    ");
-            }
-            Console.SetCursorPosition(default, UnderKatYpos);
-            Console.WriteLine("Opdater");
-            Console.ReadKey();
-        }
-
-    }
-
-    public class udlejer : Kategori
-    {
-        public override void Opret()
-        {
-            Console.WriteLine("Opret");
-            Console.ReadKey();
-        }
-    }
-    
+    }   
 }

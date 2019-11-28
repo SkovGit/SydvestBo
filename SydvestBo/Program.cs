@@ -7,8 +7,7 @@ namespace SydvestBo
     {
         public static void Main(string[] args)
         {
-            var kør = new Kategori();
-            udlejer udlejer = new udlejer();
+            var kør = new UIface();
 
             kør.KørMenu();
 
