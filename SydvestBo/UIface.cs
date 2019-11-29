@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+
 namespace SydvestBo
 {
     
 
     public class UIface
     {
-        public static ConsoleKeyInfo Tast; //Lader mig bruge ConsoleKeys 
+		
+
+		public static ConsoleKeyInfo Tast; //Lader mig bruge ConsoleKeys 
 
         static bool Loopkat = true; //  ************| Er vi inde i Menuen?
         static int KatTæller; // ************| Hvilken Menu kigger vi på: udlejer, feriebolig, kontrakt
@@ -19,7 +22,7 @@ namespace SydvestBo
 
         
 
-        public List<string> Kategorier = new List<string> {"Udlejer", "Feriebolig", "Kontrakt" };
+        public List<string> Kategorier = new List<string> {"Udlejer", "Feriebolig", "Kontrakt", "DB Connection" };
         public List<string> UnderKats  = new List<string> { "Opret", "Vis", "Slet", "Opdater" };
 
 
@@ -31,7 +34,7 @@ namespace SydvestBo
             Kontrakt kontrakt = new Kontrakt();
 
             int testint = 0;
-            int katæller;
+            
             KatTæller = Kategorier.IndexOf(Kategorier.First<string>()); // ************| Hvilken Menu kigger vi på: udlejer, feriebolig, kontrakt
             UnderKat = UnderKats.IndexOf(UnderKats.First<string>());
 
@@ -59,7 +62,8 @@ namespace SydvestBo
                     case ConsoleKey.RightArrow:
                         if (KatTæller < Kategorier.IndexOf(Kategorier.Last<string>()))
                             KatTæller++;
-                        break;
+						
+						break;
 
                     // ************| Trykker Enter
                     case ConsoleKey.Enter:
@@ -69,6 +73,13 @@ namespace SydvestBo
                             feriebolig.PlayTask();
                         if (testint == 2)
                             kontrakt.PlayTask();
+						if (testint == 3)
+						{
+							Console.SetCursorPosition(default, UnderKatYpos + UnderKats.IndexOf(UnderKats.Last<string>())+2);
+							string ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SydvestBo;Data Source=localhost";
+							Console.WriteLine(ConnectionString);
+								
+						}
                         break;
                 }
                 int musPosition = Console.CursorTop;
@@ -88,8 +99,9 @@ namespace SydvestBo
                         
                         Console.BackgroundColor = ConsoleColor.Green;
                     }
-                    Console.WriteLine($"{UnderKats[i]}\t:");
-                    Console.ResetColor();
+				
+						Console.WriteLine($"{UnderKats[i]}\t:");
+					Console.ResetColor();
                 }
 
                 int nyMusPosition = Console.CursorTop;
@@ -108,9 +120,23 @@ namespace SydvestBo
                         
                         Console.BackgroundColor = ConsoleColor.Green;
                     }
-                    Console.Write($"{Kategorier[i]}");
-                    Console.ResetColor();
-                    Console.Write("    ");
+					int x = Console.CursorLeft;
+					int y = Console.CursorTop;
+
+					if (i < Kategorier.IndexOf(Kategorier.Last<string>()))
+					{
+						Console.Write($"{Kategorier[i]}");
+						Console.ResetColor();
+						Console.Write("    ");
+					}
+					else
+					{
+						Console.WriteLine($"{Kategorier[i]}");
+						Console.ResetColor();
+					}
+
+					
+                    
                 }
                 udlejer.GetOverKat = testint;
                 kontrakt.GetOverKat = testint;
