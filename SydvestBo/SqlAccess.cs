@@ -8,16 +8,16 @@ namespace SydvestBo
 {
     public class SqlAccess
     {
-        public string GetConString()
-        {
-            string con = ConfigurationManager.ConnectionStrings["SydvestBoDB"].ConnectionString;
-            return con;
-        }
 
-        public bool ConnectionOK()
+        //private static readonly string con = ConfigurationManager.ConnectionStrings["SydvestBoDB"].ConnectionString;
+        private static readonly string con = "Server=tcp:sydvestbo.database.windows.net;Database=SydvestBo; User ID = h1root; Password=Sqlsydvestb0;Trusted_Connection=False;Encrypt=True;";
+
+
+        public static bool ConnectionOK()
         {
-            using(SqlConnection cnn = new SqlConnection(GetConString()))
+            using (SqlConnection cnn = new SqlConnection(con))
             {
+
                 try
                 {
                     cnn.Open();
@@ -31,11 +31,15 @@ namespace SydvestBo
                 }
             }
         }
-        
+
+
+
+
         public SqlAccess()
         {
-            
+
         }
     }
+    
     
 }
