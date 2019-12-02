@@ -16,6 +16,7 @@ namespace SydvestBo
         }
         public void PlayTask()
         {
+            
             string methodName = $"{uiface.UnderKats[GetUnderKat]}";
 
             Type thisType = this.GetType();
@@ -71,12 +72,21 @@ namespace SydvestBo
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
-            
-            for (int i = opret.IndexOf(opret.First<string>()); i <= opret.IndexOf(opret.Last<string>()); i++)
+
+            //Det her foreach loop udskriver alle elementer i listen og ikke kun de første 5
+            foreach (var item in gemOpretInput)
             {
+                int i = gemOpretInput.IndexOf(item) % opret.IndexOf(opret.Last<string>() + 1);
                 Console.Write(opret[i]);
-                Console.WriteLine(gemOpretInput[i]);
+                Console.WriteLine(item);
             }
+
+
+            //for (int i = opret.IndexOf(gemOpretInput.First<string>()); i <= gemOpretInput.IndexOf(gemOpretInput.Last<string>()); i++)
+            //{
+            //    Console.Write(opret[i]);
+            //    Console.WriteLine(gemOpretInput[i]);
+            //}
             Console.ReadKey();
         }
         public void Slet()
