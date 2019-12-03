@@ -39,6 +39,7 @@
     <Compile Include="Feriebolig_status.cs" />
     <Compile Include="Kalender.cs" />
     <Compile Include="UIface.cs" />
+    <Compile Include="UIActionHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
