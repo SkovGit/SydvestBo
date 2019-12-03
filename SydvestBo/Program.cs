@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace SydvestBo
 {
-    class Starter
+    class MainClass
     {
         public static void Main(string[] args)
         {

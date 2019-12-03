@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SydvestBo", "SydvestBo.csproj", "{8405EB88-F4EE-40B1-BA2C-F9A8EE9BC483}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{560A030E-31C9-45AC-AFBD-A6FF7F8C424A}"
-	ProjectSection(SolutionItems) = preProject
-		app.config = app.config
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
