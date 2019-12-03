@@ -5,18 +5,27 @@ using System.Reflection;
 
 namespace SydvestBo
 {
+
     public abstract class UIActionHandler
     {
-
+        public abstract void PlayTask();
+        public abstract void Opret();
+        public abstract void Vis();
+        public abstract void Slet();
+        public abstract void Opdater();
     }
+
     public class UIudlejer : UIActionHandler
     {
         UIface uiface = new UIface();
 
         public int GetUnderKat { get; set; }
         public int GetOverKat { get; set; }
-        
-        public void PlayTask()
+
+        List<string> opret = new List<string> { "Navn       :", "Cpr        :", "Postnummer :", "Email      :", "Telefon    :" };
+        List<string> gemOpretInput = new List<string>();
+
+        public override void PlayTask()
         {
 
             string methodName = $"{uiface.UnderKats[GetUnderKat]}";
@@ -38,10 +47,7 @@ namespace SydvestBo
             Console.Clear();
 
         }
-        List<string> opret = new List<string> { "Navn       :", "Cpr        :", "Postnummer :", "Email      :", "Telefon    :" };
-        List<string> gemOpretInput = new List<string>();
-
-        public void Opret()
+        public override void Opret()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
@@ -68,10 +74,7 @@ namespace SydvestBo
             }
             Console.ReadKey();
         }
-
-
-
-        public void Vis()
+        public override void Vis()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
@@ -110,24 +113,22 @@ namespace SydvestBo
                 Console.ReadKey();
             }
         }
-        public void Slet()
+        public override void Slet()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Opdater()
+        public override void Opdater()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-
-
-
     }
+
     public class UIferiebolig : UIActionHandler
     {
         UIface uiface = new UIface();
@@ -135,7 +136,7 @@ namespace SydvestBo
         public int GetUnderKat { get; set; }
         public int GetOverKat { get; set; }
         
-        public void PlayTask()
+        public override void PlayTask()
         {
             string methodName = $"{uiface.UnderKats[GetUnderKat]}";
 
@@ -156,29 +157,28 @@ namespace SydvestBo
             Console.Clear();
 
         }
-        // ****************************** | Underkategori Metoder
-        public void Opret()
+        public override void Opret()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Vis()
+        public override void Vis()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Slet()
+        public override void Slet()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Opdater()
+        public override void Opdater()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
@@ -186,6 +186,7 @@ namespace SydvestBo
             Console.ReadKey();
         }
     }
+
     public class UIkontrakt : UIActionHandler
     {
         UIface uiface = new UIface();
@@ -193,7 +194,7 @@ namespace SydvestBo
         public int GetUnderKat { get; set; }
         public int GetOverKat { get; set; }
         
-        public void PlayTask()
+        public override void PlayTask()
         {
             string methodName = $"{uiface.UnderKats[GetUnderKat]}";
 
@@ -214,29 +215,28 @@ namespace SydvestBo
             Console.Clear();
 
         }
-        // ****************************** | Underkategori Metoder
-        public void Opret()
+        public override void Opret()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Vis()
+        public override void Vis()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Slet()
+        public override void Slet()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
 
             Console.ReadKey();
         }
-        public void Opdater()
+        public override void Opdater()
         {
             Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
             Console.WriteLine();
@@ -244,6 +244,4 @@ namespace SydvestBo
             Console.ReadKey();
         }
     }
-
-
 }

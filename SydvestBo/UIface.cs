@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Configuration;
 
 
 namespace SydvestBo
@@ -10,8 +11,6 @@ namespace SydvestBo
 
     public class UIface
     {
-		
-
 		public static ConsoleKeyInfo Tast; //Lader mig bruge ConsoleKeys 
 
         static bool Loopkat = true; //  ************| Er vi inde i Menuen?
@@ -20,18 +19,17 @@ namespace SydvestBo
         static int Menu; // ************| Current Menu
         static int UnderKatYpos = 2;
 
-        
-
         public List<string> Kategorier = new List<string> {"Udlejer", "Feriebolig", "Kontrakt", "DB Connection" };
         public List<string> UnderKats  = new List<string> { "Opret", "Vis", "Slet", "Opdater" };
 
+       
 
         public void KørMenu()
         {
 
-            Udlejer udlejer = new Udlejer();
-            Feriebolig feriebolig = new Feriebolig();
-            Kontrakt kontrakt = new Kontrakt();
+            UIudlejer uIudlejer = new UIudlejer();
+            UIferiebolig uIferiebolig = new UIferiebolig();
+            UIkontrakt uIkontrakt = new UIkontrakt();
 
             int testint = 0;
             
@@ -53,7 +51,6 @@ namespace SydvestBo
                             UnderKat++;
                         break;
 
-
                     // ************| Skift mellem Udlejer, Feriebolig, Kontrakt
                     case ConsoleKey.LeftArrow:
                         if (KatTæller > Kategorier.IndexOf(Kategorier.First<string>()))
@@ -68,16 +65,17 @@ namespace SydvestBo
                     // ************| Trykker Enter
                     case ConsoleKey.Enter:
                         if (testint == 0)
-                            udlejer.PlayTask();
+                            uIudlejer.PlayTask();
                         if (testint == 1)
-                            feriebolig.PlayTask();
+                            uIferiebolig.PlayTask();
                         if (testint == 2)
-                            kontrakt.PlayTask();
+                            uIkontrakt.PlayTask();
 						if (testint == 3)
 						{
 							Console.SetCursorPosition(default, UnderKatYpos + UnderKats.IndexOf(UnderKats.Last<string>())+2);
 							string ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SydvestBo;Data Source=localhost";
-							Console.WriteLine(ConnectionString);
+                            
+                            Console.WriteLine(ConnectionString);
 								
 						}
                         break;
@@ -93,9 +91,9 @@ namespace SydvestBo
                     if (i == UnderKat)
                     {
 
-                        udlejer.GetUnderKat = i;
-                        feriebolig.GetUnderKat = i;
-                        kontrakt.GetUnderKat = i;
+                        uIudlejer.GetUnderKat = i;
+                        uIferiebolig.GetUnderKat = i;
+                        uIkontrakt.GetUnderKat = i;
                         
                         Console.BackgroundColor = ConsoleColor.Green;
                     }
@@ -133,18 +131,16 @@ namespace SydvestBo
 					{
 						Console.WriteLine($"{Kategorier[i]}");
 						Console.ResetColor();
-					}
-
-					
-                    
+					}                    
                 }
-                udlejer.GetOverKat = testint;
-                kontrakt.GetOverKat = testint;
-                feriebolig.GetOverKat = testint;
+                uIudlejer.GetOverKat = testint;
+                uIkontrakt.GetOverKat = testint;
+                uIferiebolig.GetOverKat = testint;
 
                 Console.SetCursorPosition(default, getUKatsPos[UnderKat] + UnderKatYpos);
-                Tast = Console.ReadKey(true);
+                Tast = Console.ReadKey(true); 
             }
+            
         }
     }   
 }
