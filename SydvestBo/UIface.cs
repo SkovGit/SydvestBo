@@ -62,7 +62,7 @@ namespace SydvestBo
 						
 						break;
 
-                    // ************| Trykker Enter
+                    // ************| Trykker Enter  oksds
                     case ConsoleKey.Enter:
                         if (testint == 0)
                             uIudlejer.PlayTask();
