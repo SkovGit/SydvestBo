@@ -13,6 +13,7 @@ namespace SydvestBo
         public DateTime DatoOprettet { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
+        public PostNrBy Bynavn;
 
         public string FullUdlejer
         {
@@ -25,6 +26,16 @@ namespace SydvestBo
 
         public Udlejer()
         {
+        }
+        public Udlejer(int cpr, string fnavn, string enavn, string adr, int postnr, string email, string telefon)
+        {
+            Cpr = cpr;
+            Fornavn = fnavn;
+            Efternavn = enavn;
+            Adresse = adr;
+            Postnr = postnr;
+            Email = email;
+            Telefon = telefon;
         }
     }
 }
