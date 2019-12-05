@@ -4,24 +4,22 @@ using System.Reflection;
 using System.Linq;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
+
 using System.Reflection;
 using System.Linq;
-=======
->>>>>>> 0d0617eb54bd9a43d3d5ee7f1d1b2683974421d4
+
 
 namespace SydvestBo
 {
     // Klasse til at manipulere data fra Udlejertabellen i databasen
     public class Udlejer
     {
-<<<<<<< HEAD
-        UIface uiface = new UIface();
+			UIface uiface = new UIface();
 
-        public int GetUnderKat { get; set; }
-        public int GetOverKat { get; set; }
-=======
-        public int UdlejerId { get; set; }
+			public int GetUnderKat { get; set; }
+			public int GetOverKat { get; set; }
+
+			public int UdlejerId { get; set; }
         public int Cpr { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
@@ -41,35 +39,7 @@ namespace SydvestBo
             }
         }
 
-        UIface uiface = new UIface();
 
-namespace SydvestBo
-{
-    // Klasse til at manipulere data fra Udlejertabellen i databasen
-    public class Udlejer
-    {
-<<<<<<< HEAD
-        public int UdlejerId { get; set; }
-        public int Cpr { get; set; }
-        public string Fornavn { get; set; }
-        public string Efternavn { get; set; }
-        public string Adresse { get; set; }
-        public int Postnr { get; set; }
-        public string DatoOprettet { get; set; }
-        public string Email { get; set; }
-        public string Telefon { get; set; }
-        public PostNrBy Bynavn;
-
-        public string FullUdlejer
-        {
-            get
-            {
-                return $" { UdlejerId } { Fornavn } { Efternavn } { Adresse } { Postnr }" +
-                    $"{ DatoOprettet } { Email } {Telefon} ";
-            }
-        }
-
->>>>>>> 0d0617eb54bd9a43d3d5ee7f1d1b2683974421d4
         public Udlejer()
         {
             
@@ -93,8 +63,6 @@ namespace SydvestBo
             Console.WriteLine("\nTelefon");
             udl1.Telefon = Console.ReadLine();
         }
-
-        
 
         public Udlejer(int cpr, string fnavn, string enavn, string adr, int postnr, string email, string telefon)
         {

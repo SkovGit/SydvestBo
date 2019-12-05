@@ -28,13 +28,6 @@ namespace SydvestBo
             kør.KørMenu();
 
             
-            SqlAccess.ConnectionOK();
-            Udlejer Henrik = new Udlejer();
-            Henrik.Fornavn = Console.ReadLine();
-            Henrik.Efternavn = Console.ReadLine();
-
-            SqlAccess access = new SqlAccess();
-            access.insert($"insert into Udlejer values('{Henrik.Fornavn}','{Henrik.Efternavn}')");
             
             
         }
