@@ -18,7 +18,7 @@ namespace SydvestBo
         public PostNrBy Bynavn;
 
 
-        public List<Udlejer> udlejerListe;
+        public List<Udlejer> udlejerListe = new List<Udlejer>();
         public string FullUdlejer
         {
             get
@@ -57,6 +57,18 @@ namespace SydvestBo
 
         
 
+        public void visUdlejer()
+        {
+            int i = 1;
+            foreach (var item in udlejerListe)
+            {
+                Console.WriteLine($"Udlejer{i}\n{item.ToString()}\n");
+
+                i++;
+            }
+        }
+        
+
         public Udlejer(int cpr, string fnavn, string enavn, string adr, int postnr, string email, string telefon)
         {
             Cpr = cpr;
@@ -69,7 +81,16 @@ namespace SydvestBo
             DatoOprettet = "default";
 
         }
-		
 
-	}
+        public override string ToString()
+        {
+            return $@"Cpr: {Cpr}
+Fornavn: {Fornavn}
+Efternavn: {Efternavn}
+Adresse: {Adresse}
+PostNr: {Postnr}
+Email: {Email}
+Telefon {Telefon}";
+        }
+    }
 }

@@ -47,50 +47,20 @@ namespace SydvestBo
             Console.Clear();
 
         }
+
+        public Udlejer udlejer = new Udlejer();
+
         public override void Opret()
         {
-            var udlejer = new Udlejer();
             udlejer.opretUdlejer();
             Console.ReadKey();
         }
+
         public override void Vis()
         {
-            Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
-            Console.WriteLine();
-            List<int> gemOpretTop = new List<int>();
-            List<int> gemOpretBredde = new List<int>();
-            for (int i = opret.IndexOf(opret.First<string>()); i <= opret.IndexOf(opret.Last<string>()); i++)
-            {
 
-                Console.Write(opret[i]);
-                gemOpretTop.Add((Console.CursorTop + 1));
-                gemOpretBredde.Add((Console.CursorLeft + 3));
-                Console.WriteLine();
-
-            }
-            for (int i = opret.IndexOf(opret.First<string>()); i <= opret.IndexOf(opret.Last<string>()); i++)
-            {
-                Console.SetCursorPosition(gemOpretBredde[i], gemOpretTop[i]);
-                Console.WriteLine(gemOpretInput[i]);
-
-
-                //Det her foreach loop udskriver alle elementer i listen og ikke kun de første 5
-                foreach (var item in gemOpretInput)
-                {
-                    i = gemOpretInput.IndexOf(item) % opret.IndexOf(opret.Last<string>() + 1);
-                    Console.Write(opret[i]);
-                    Console.WriteLine(item);
-
-                }
-
-
-                //for (int i = opret.IndexOf(gemOpretInput.First<string>()); i <= gemOpretInput.IndexOf(gemOpretInput.Last<string>()); i++)
-                //{
-                //    Console.Write(opret[i]);
-                //    Console.WriteLine(gemOpretInput[i]);
-                //}
-                Console.ReadKey();
-            }
+            udlejer.visUdlejer();
+            Console.ReadKey();
         }
         public override void Slet()
         {
