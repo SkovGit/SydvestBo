@@ -17,6 +17,8 @@ namespace SydvestBo
         public string Telefon { get; set; }
         public PostNrBy Bynavn;
 
+
+        public List<Udlejer> udlejerListe;
         public string FullUdlejer
         {
             get
@@ -48,6 +50,9 @@ namespace SydvestBo
             udl1.Email = Console.ReadLine();
             Console.WriteLine("\nTelefon");
             udl1.Telefon = Console.ReadLine();
+
+            udlejerListe.Add(udl1);
+
         }
 
         
