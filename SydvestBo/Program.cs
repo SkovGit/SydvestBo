@@ -12,7 +12,11 @@ namespace SydvestBo
         {
             // Herfra startes applikationen ved at instantiere UI klassen
 
-            
+            var kør = new UIface();
+            kør.KørMenu();
+
+
+			Console.ReadKey();
             SqlAccess.ConnectionOK();
             Udlejer Henrik = new Udlejer();
             Henrik.Fornavn = Console.ReadLine();

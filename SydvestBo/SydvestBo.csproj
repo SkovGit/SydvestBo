@@ -35,7 +35,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI.cs" />
     <Compile Include="Udlejer.cs" />
     <Compile Include="Feriebolig.cs" />
     <Compile Include="PostNrBy.cs" />
@@ -45,16 +44,9 @@
     <Compile Include="SqlAccess.cs" />
     <Compile Include="UIActionHandler.cs" />
     <Compile Include="UIface.cs" />
-    <Compile Include="UI\addUser.cs" />
-    <Compile Include="UI\Nytest.cs" />
-    <Compile Include="UI\TestUI.cs" />
-    <Compile Include="UI\UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
