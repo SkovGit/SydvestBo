@@ -73,10 +73,8 @@ namespace SydvestBo
 						if (testint == 3)
 						{
 							Console.SetCursorPosition(default, UnderKatYpos + UnderKats.IndexOf(UnderKats.Last<string>())+2);
-							string ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SydvestBo;Data Source=localhost";
-                            
-                            Console.WriteLine(ConnectionString);
-								
+                            SqlAccess.ConnectionOK();
+                            	
 						}
                         break;
                 }
@@ -102,7 +100,7 @@ namespace SydvestBo
 					Console.ResetColor();
                 }
 
-                int nyMusPosition = Console.CursorTop;
+                
                 Console.SetCursorPosition(Kategorier.IndexOf(Kategorier.First<string>()), default);
 
                 List<int> getKatsPos = new List<int>();
