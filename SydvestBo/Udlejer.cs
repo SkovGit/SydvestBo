@@ -1,21 +1,112 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
+using System;
+using System.Collections.Generic;
+<<<<<<< HEAD
+using System.Reflection;
+using System.Linq;
+=======
+>>>>>>> 0d0617eb54bd9a43d3d5ee7f1d1b2683974421d4
 
 namespace SydvestBo
 {
+    // Klasse til at manipulere data fra Udlejertabellen i databasen
     public class Udlejer
     {
 <<<<<<< HEAD
-        
-=======
         UIface uiface = new UIface();
 
         public int GetUnderKat { get; set; }
         public int GetOverKat { get; set; }
+=======
+        public int UdlejerId { get; set; }
+        public int Cpr { get; set; }
+        public string Fornavn { get; set; }
+        public string Efternavn { get; set; }
+        public string Adresse { get; set; }
+        public int Postnr { get; set; }
+        public string DatoOprettet { get; set; }
+        public string Email { get; set; }
+        public string Telefon { get; set; }
+        public PostNrBy Bynavn;
+
+        public string FullUdlejer
+        {
+            get
+            {
+                return $" { UdlejerId } { Fornavn } { Efternavn } { Adresse } { Postnr }" +
+                    $"{ DatoOprettet } { Email } {Telefon} ";
+            }
+        }
+
+        UIface uiface = new UIface();
+
+namespace SydvestBo
+{
+    // Klasse til at manipulere data fra Udlejertabellen i databasen
+    public class Udlejer
+    {
+<<<<<<< HEAD
+        public int UdlejerId { get; set; }
+        public int Cpr { get; set; }
+        public string Fornavn { get; set; }
+        public string Efternavn { get; set; }
+        public string Adresse { get; set; }
+        public int Postnr { get; set; }
+        public string DatoOprettet { get; set; }
+        public string Email { get; set; }
+        public string Telefon { get; set; }
+        public PostNrBy Bynavn;
+
+        public string FullUdlejer
+        {
+            get
+            {
+                return $" { UdlejerId } { Fornavn } { Efternavn } { Adresse } { Postnr }" +
+                    $"{ DatoOprettet } { Email } {Telefon} ";
+            }
+        }
+
+>>>>>>> 0d0617eb54bd9a43d3d5ee7f1d1b2683974421d4
         public Udlejer()
         {
+            
+        }
+        public void opretUdlejer()
+        {
+            Udlejer udl1 = new Udlejer();
+            Console.WriteLine( "indtast følgende oplysninger: ");
+            Console.Write("\nCpr nummer: ");
+            udl1.Cpr = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nFornavn: ");
+            udl1.Fornavn = Console.ReadLine();
+            Console.WriteLine("\nEfternavn");
+            udl1.Efternavn = Console.ReadLine();
+            Console.WriteLine("\nAdresse");
+            udl1.Adresse = Console.ReadLine();
+            Console.WriteLine("\n Postnummer");
+            udl1.Postnr = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("\nEmail");
+            udl1.Email = Console.ReadLine();
+            Console.WriteLine("\nTelefon");
+            udl1.Telefon = Console.ReadLine();
+        }
+
+        
+
+        public Udlejer(int cpr, string fnavn, string enavn, string adr, int postnr, string email, string telefon)
+        {
+            Cpr = cpr;
+            Fornavn = fnavn;
+            Efternavn = enavn;
+            Adresse = adr;
+            Postnr = postnr;
+            Email = email;
+            Telefon = telefon;
+            DatoOprettet = "default";
+
         }
         public void PlayTask()
         {
@@ -96,6 +187,6 @@ namespace SydvestBo
 
             Console.ReadKey();
         }
->>>>>>> parent of aa3f1e1... For loop i Vis() ændret til foreach
+
     }
 }
