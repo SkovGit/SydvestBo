@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Data.SqlClient;
-
+using System.Text;
 
 namespace SydvestBo
 {
@@ -13,6 +13,8 @@ namespace SydvestBo
 
         public static void Main(string[] args)
         {
+            //bruger utf8 for hele programmet
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             // Herfra startes applikationen ved at instantiere UI klassen
 
             var kør = new UIface();
