@@ -49,29 +49,8 @@ namespace SydvestBo
         }
         public override void Opret()
         {
-            Console.WriteLine($"{uiface.UnderKats[GetUnderKat]} {uiface.Kategorier[GetOverKat]}");
-            Console.WriteLine();
-
-            List<int> gemOpretTop = new List<int>();
-            List<int> gemOpretBredde = new List<int>();
-            for (int i = opret.IndexOf(opret.First<string>()); i <= opret.IndexOf(opret.Last<string>()); i++)
-            {
-                Console.Write(opret[i]);
-                gemOpretTop.Add((Console.CursorTop + 1));
-                gemOpretBredde.Add((Console.CursorLeft + 3));
-
-                Console.WriteLine();
-
-
-
-            }
-            for (int i = opret.IndexOf(opret.First<string>()); i <= opret.IndexOf(opret.Last<string>()); i++)
-            {
-
-                Console.SetCursorPosition(gemOpretBredde[i], gemOpretTop[i]);
-                gemOpretInput.Add(Console.ReadLine());
-
-            }
+            var udlejer = new Udlejer();
+            udlejer.opretUdlejer();
             Console.ReadKey();
         }
         public override void Vis()

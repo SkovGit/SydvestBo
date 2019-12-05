@@ -4,17 +4,19 @@ using System.Configuration;
 using System.Linq;
 using System.Data.SqlClient;
 
+
 namespace SydvestBo
 {
     class MainClass
     {
+        
+
         public static void Main(string[] args)
         {
             // Herfra startes applikationen ved at instantiere UI klassen
 
             var kør = new UIface();
             kør.KørMenu();
-
 
 			Console.ReadKey();
             SqlAccess.ConnectionOK();
