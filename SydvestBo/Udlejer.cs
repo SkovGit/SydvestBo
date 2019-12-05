@@ -27,6 +27,17 @@ namespace SydvestBo
         public Udlejer()
         {
         }
+        public void opretUdlejer()
+        {
+            Udlejer udl1 = new Udlejer();
+            Console.WriteLine( "indtast følgende oplysninger: ");
+            Console.Write("Cpr nummer: ");
+            udl1.Cpr = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nFornavn: ");
+            udl1.Fornavn = Console.ReadLine();
+
+
+        }
         public Udlejer(int cpr, string fnavn, string enavn, string adr, int postnr, string email, string telefon)
         {
             Cpr = cpr;
