@@ -13,11 +13,28 @@ namespace SydvestBo
         {
         }
 
+        public void hentUdlejer()
+        {
+            //retunere datatabeller
+        }
+        public void hentFeriebolig()
+        {
+            //
+        }
         public void opretKontrakt()
         {
+
             Kontrakt kt1 = new Kontrakt();
             Console.WriteLine("indtast følgende oplysninger: ");
-            Console.Write("Cpr nummer: ");
+            Console.Write("\nAdresse");
+            kt1.Adresse = Console.ReadLine();
+            Console.WriteLine("\nPostnummer");
+            kt1.Postnr = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("\nUdlejerID");
+            kt1.UdlejerID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\nKontraktType");
+            kt1.Kontrakttype = Console.ReadLine();
+
         }
 
     }
