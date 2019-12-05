@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace SydvestBo
 {
     // Klasse til at manipulere data fra Udlejertabellen i databasen
@@ -10,7 +12,7 @@ namespace SydvestBo
         public string Efternavn { get; set; }
         public string Adresse { get; set; }
         public int Postnr { get; set; }
-        public DateTime DatoOprettet { get; set; }
+        public string DatoOprettet { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
         public PostNrBy Bynavn;
@@ -26,18 +28,30 @@ namespace SydvestBo
 
         public Udlejer()
         {
+            
         }
         public void opretUdlejer()
         {
             Udlejer udl1 = new Udlejer();
             Console.WriteLine( "indtast følgende oplysninger: ");
-            Console.Write("Cpr nummer: ");
+            Console.Write("\nCpr nummer: ");
             udl1.Cpr = Convert.ToInt32(Console.ReadLine());
             Console.Write("\nFornavn: ");
             udl1.Fornavn = Console.ReadLine();
-
-
+            Console.WriteLine("\nEfternavn");
+            udl1.Efternavn = Console.ReadLine();
+            Console.WriteLine("\nAdresse");
+            udl1.Adresse = Console.ReadLine();
+            Console.WriteLine("\n Postnummer");
+            udl1.Postnr = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("\nEmail");
+            udl1.Email = Console.ReadLine();
+            Console.WriteLine("\nTelefon");
+            udl1.Telefon = Console.ReadLine();
         }
+
+        
+
         public Udlejer(int cpr, string fnavn, string enavn, string adr, int postnr, string email, string telefon)
         {
             Cpr = cpr;
@@ -47,6 +61,8 @@ namespace SydvestBo
             Postnr = postnr;
             Email = email;
             Telefon = telefon;
+            DatoOprettet = "default";
+
         }
     }
 }

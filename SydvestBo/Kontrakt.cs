@@ -12,5 +12,13 @@ namespace SydvestBo
         public Kontrakt()
         {
         }
+
+        public void opretKontrakt()
+        {
+            Kontrakt kt1 = new Kontrakt();
+            Console.WriteLine("indtast følgende oplysninger: ");
+            Console.Write("Cpr nummer: ");
+        }
+
     }
 }
