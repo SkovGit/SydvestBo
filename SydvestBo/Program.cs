@@ -14,7 +14,7 @@ namespace SydvestBo
 
             
             SqlAccess.ConnectionOK();
-            Kontrakt Henrik = new Kontrakt();
+            Udlejer Henrik = new Udlejer();
             Henrik.Fornavn = Console.ReadLine();
             Henrik.Efternavn = Console.ReadLine();
 
