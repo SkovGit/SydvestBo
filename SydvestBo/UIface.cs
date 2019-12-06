@@ -16,7 +16,7 @@ namespace SydvestBo
         static bool Loopkat = true; //  ************| Er vi inde i Menuen?
         static int KatTæller; // ************| Hvilken Menu kigger vi på: udlejer, feriebolig, kontrakt
         public int UnderKat; // ************| Under kategori: opret, vis, slet, opdater
-        static int Menu; // ************| Current Menu
+        //static int Menu; // ************| Current Menu
         static int UnderKatYpos = 2;
 
         public List<string> Kategorier = new List<string> {"Udlejer", "Feriebolig", "Kontrakt", "DB Connection" };

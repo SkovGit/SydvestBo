@@ -22,13 +22,16 @@ namespace SydvestBo
                 { 
                     cnn.Open();
                     Console.WriteLine("Der er forbindelse til DB!");
+                    cnn.Close();
                     return true;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    cnn.Close();
                     return false;
                 }
+                
             }
         }
 
