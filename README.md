@@ -7,6 +7,5 @@ _
 _
 _
 ## This project is developed to manage holiday housing rentals.
-_
-_
+
 #entity-relationship-diagram #object-oriented-programming #class-diagram #console-application #backend #text-only-interface
